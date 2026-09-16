@@ -136,10 +136,7 @@ export default function DigitVisualizerV2() {
     draw(event);
   };
 
-  const runCurrentDrawing = () => {
-    if (!canvasRef.current || !modelData || !hasDrawing) return;
-    queueInference();
-  };
+
 
   /* Legacy manual-run path removed: inference is now queued from pointer movement. */
   const unusedLegacyBlock = () => {
