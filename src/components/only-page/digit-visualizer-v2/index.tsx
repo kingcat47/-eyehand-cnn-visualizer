@@ -199,15 +199,7 @@ export default function DigitVisualizerV2() {
           </div>
           <div className={s.canvasActions}>
             <button onClick={clearDrawing} type="button"><Eraser size={16} />지우기</button>
-            <button
-              className={s.runButton}
-              disabled={!hasDrawing || !modelData || status === "running"}
-              onClick={() => void runCurrentDrawing()}
-              type="button"
-            >
-              {status === "running" ? <LoaderCircle className={s.spinner} size={16} /> : <Play size={16} />}
-              분류하기
-            </button>
+        
           </div>
           <PredictionSummary inference={inference} />
         </section>
