@@ -5,7 +5,7 @@ import {
   useState,
   type PointerEvent,
 } from "react";
-import { Eraser, LoaderCircle, Play } from "lucide-react";
+import { Eraser, LoaderCircle } from "lucide-react";
 
 import { CLASS_COLORS } from "@/constants/model";
 import {
