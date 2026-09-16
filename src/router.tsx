@@ -1,18 +1,28 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
-import { Home, LoginPage } from "@/pages";
 import { RootLayout } from "@/components/layout";
 
 const Router = createBrowserRouter([
   {
     element: <RootLayout />,
     children: [
-      { path: "/", element: <Home /> },
+      {
+        path: "/",
+        element: <Navigate replace to="/v2" />,
+      },
+      {
+        path: "/v1",
+        lazy: async () => ({ Component: (await import("@/pages/Home")).default }),
+      },
+      {
+        path: "/v2",
+        lazy: async () => ({ Component: (await import("@/pages/V2")).default }),
+      },
     ],
   },
   {
     path: "/auth/login",
-    element: <LoginPage />,
+    lazy: async () => ({ Component: (await import("@/pages/Login")).default }),
   },
 ]);
 
